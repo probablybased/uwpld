@@ -53,7 +53,6 @@ int main(int argc, char **argv) {
         default:
              printf("Injected.\nYou may now close this window.\n");
     }
-
     return 0;
 }
 

@@ -3,5 +3,4 @@ project(uwpload)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(uwpload)
-add_subdirectory(src)
+add_executable(uwpload "src/launch/main.cc")
