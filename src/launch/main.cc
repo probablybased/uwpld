@@ -85,7 +85,7 @@ int elevate(const char* image) {
         return 3;
     }
 
-    if(SetNamedSecurityInfo(const_cast<char*>(image), SE_FILE_OBJECT, DACL_SECURITY_INFORMATION, nullptr, nullptr, dacl, nullptr)) {
+    if(SetNamedSecurityInfo(const_cast<char*>(image), SE_FILE_OBJECT, DACL_SECURITY_INFORMATION, nullptr, nullptr, newDacl, nullptr)) {
         LocalFree(newDacl);
         return 4;
     }
