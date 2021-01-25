@@ -97,7 +97,7 @@ int inject(const char* image, const DWORD process) {
     const auto LoadLibraryA = (LPVOID)GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
     if(!LoadLibraryA) { return 1; }
     const auto ProcessHandle = OpenProcess(PROCESS_ALL_ACCESS, false, process);
-    if(!ProcessHandle) { return 2; }
+    if(ProcessHandle == nullptr) { return 2; }
     const auto remote = VirtualAllocEx(ProcessHandle, nullptr, strlen(image), MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
     if(!remote) { return 3; }
     const auto wpm = WriteProcessMemory(ProcessHandle, remote, image, strlen(image), nullptr);
